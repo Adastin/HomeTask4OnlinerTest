@@ -14,14 +14,14 @@ public class Product extends BaseForm {
         super(By.xpath("//h1"), "Product #" + count);
         count++;
     }
-    public void checkParameters(){
+    public void checkParameters(String company, double maxPrice, int minDate, double minSize, double maxSize){
         String s = year.getText();
         int intYear = Integer.parseInt(s.substring(0, s.indexOf(' ')));
         s = price.getText();
         double minPrice = Double.parseDouble(s.replace(',', '.').substring(0, s.indexOf(' ')));
         s = size.getText();
         double doubleSize = Double.parseDouble(s.substring(0, s.indexOf('"')));
-        assert(model.getText().contains("Samsung") && intYear >= 2013 && minPrice <= 1000 && doubleSize >= 39 && doubleSize <= 42);
+        assert(model.getText().contains(company) && intYear >= minDate && minPrice <= maxPrice && doubleSize >= minSize && doubleSize <= maxSize);
 
     }
 }

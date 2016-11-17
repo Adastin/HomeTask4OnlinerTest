@@ -10,14 +10,14 @@ import webdriver.BaseTest;
 
 public class OnlinerTest extends BaseTest {
     private String company;
-    private String maxPrice;
-    private String minDate;
-    private String minSize;
-    private String maxSize;
+    private double maxPrice;
+    private int minDate;
+    private double minSize;
+    private double maxSize;
 
     @Parameters ({"company", "maxPrice", "minDate", "minSize", "maxSize"})
     @BeforeTest
-    public void setup(String company, String maxPrice, String minDate, String minSize, String maxSize){
+    public void setup(String company, double maxPrice, int minDate, double minSize, double maxSize){
         this.company = company;
         this.maxPrice = maxPrice;
         this.minDate = minDate;
@@ -44,7 +44,7 @@ public class OnlinerTest extends BaseTest {
         Result result = new Result();
 
         logger.step(6);
-        result.checkList();
+        result.checkList(company, maxPrice, minDate, minSize, maxSize);
 
     }
 }

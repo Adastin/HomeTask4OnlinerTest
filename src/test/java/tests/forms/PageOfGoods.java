@@ -14,14 +14,14 @@ public class PageOfGoods extends BaseForm {
     public PageOfGoods() {
         super(By.xpath("//h1"), "TV sets");
     }
-    public void setParameters(String maxPrice, String minDate, String minSize, String maxSize){
+    public void setParameters(double maxPrice, int minDate, double minSize, double maxSize){
         company.click();
-        price.type(maxPrice);
+        price.type(String.valueOf(maxPrice));
         sizeMin.click();
-        sizeMin.type(minSize);
+        sizeMin.type(String.valueOf(minSize));
         sizeMax.click();
-        sizeMax.type(maxSize);
-        date.type(minDate);
+        sizeMax.type(String.valueOf(maxSize));
+        date.type(String.valueOf(minDate));
     }
 
 }

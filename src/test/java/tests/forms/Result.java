@@ -23,14 +23,14 @@ public class Result extends BaseForm {
         return stringList.size();
     }
 
-    public void checkList(){
+    public void checkList(String company, double maxPrice, int minDate, double minSize, double maxSize){
         int i = 1;
         for (String element : stringList){
             Label label = new Label(By.linkText(element),"Product #" + i);
             i++;
             label.click();
             Product product = new Product();
-            product.checkParameters();
+            product.checkParameters(company, maxPrice, minDate, minSize,  maxSize);
             browser.back();
         }
 
