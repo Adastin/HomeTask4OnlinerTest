@@ -6,12 +6,12 @@ import webdriver.elements.Label;
 
 public class Product extends BaseForm {
     private static int count = 1;
-    private Label model = new Label(By.xpath("//h2"), "Модель");
+    private Label model = new Label(By.xpath("//h1"), "Модель");
     private Label year = new Label(By.xpath("//td[contains(text(),'Дата выхода на рынок')]/following-sibling::td/span"), "year");
     private Label price = new Label(By.xpath("//div[@class='b-offers-desc__info-sub']/a[1]"), "price");
     private Label size = new Label(By.xpath("//td[contains(text(),'Диагональ экрана')]//following-sibling::td/span"), "Size");
     protected Product() {
-        super(By.xpath("//h2"), "Product #" + count);
+        super(By.xpath("//h1"), "Product #" + count);
         count++;
     }
     public void checkParameters(){
